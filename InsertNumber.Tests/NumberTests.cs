@@ -25,7 +25,7 @@ namespace InsertNumber.Tests
         public void InsertNumber_Sorce_2018_Insert_21_I_4_J_9()
         {
             int actual = Number.InsertNumber(2018, 21, 4, 9);
-            int expect = 1326;
+            int expect = 1362;
             Assert.AreEqual(actual, expect);
         }
         [TestMethod]
@@ -33,6 +33,14 @@ namespace InsertNumber.Tests
         {
             int actual = Number.InsertNumber(-15, 8, 0, 2);
             int expect = -7;
+            Assert.AreEqual(actual, expect);
+        }
+
+        [TestMethod]
+        public void InsertNumber_Sorce_0_Insert_7_I_1_J_3()
+        {
+            int actual = Number.InsertNumber(0, 7, 1, 3);
+            int expect = 14;
             Assert.AreEqual(actual, expect);
         }
 
@@ -46,7 +54,7 @@ namespace InsertNumber.Tests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
-        public void InsertNumber_Sorce_15_Insert_8_I_6_J_2()=> Number.InsertNumber(15, 8, 6, 2);
+        public void InsertNumber_Sorce_15_Insert_8_I_6_J_2() => Number.InsertNumber(15, 8, 6, 2);
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]

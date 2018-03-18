@@ -17,6 +17,8 @@ namespace InsertNumber.NUnitTests
         [TestCase(8, 5, 2, 5, ExpectedResult = 20)]
         [TestCase(-15, 8, 0, 2, ExpectedResult = -7)]
         [TestCase(-26, 7, 1, 3, ExpectedResult = -18)]
+        [TestCase(0, 7, 1, 3, ExpectedResult = 14)]
+        [TestCase(int.MaxValue, 0, 0, 1, ExpectedResult = int.MaxValue-2)]
         public static int InsertNumber_Result(int sourceNumber, int insertNumber, int i, int j) => Number.InsertNumber(sourceNumber, insertNumber, i, j);
 
         [Test]
