@@ -16,23 +16,25 @@ namespace InsertNumber.Logic
         /// <param name="j">Number of bit where insert finish. </param>
         public static int InsertNumber(int sourceNumber, int insertNumber, int i, int j)
         {
+            const int SIZE = sizeof(int) * 8;
+
             if (i > j)
             {
                 throw new ArgumentException(nameof(i));
             }
 
-            if (i < 0 || i >= 32)
+            if (i < 0 || i >= SIZE)
             {
                 throw new ArgumentOutOfRangeException(nameof(i));
             }
 
-            if (j < 0 || j >= 32)
+            if (j < 0 || j >= SIZE)
             {
                 throw new ArgumentOutOfRangeException(nameof(j));
             }
 
-            int firstTemp = ((int.MaxValue >> 30 - i) & sourceNumber) | ((sourceNumber >> j + 1) << j + 1);
-            int secondTemp = ((int.MaxValue >> 30 - (j - i + 1)) & insertNumber) << i;
+            int firstTemp = ((int.MaxValue >> SIZE - 2 - i) & sourceNumber) | ((sourceNumber >> j + 1) << j + 1);
+            int secondTemp = ((int.MaxValue >> SIZE - 2 - (j - i + 1)) & insertNumber) << i;
             return firstTemp | secondTemp;
         }
     }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 
-
 namespace NextBiggerNumber.Logic
 {
     /// <summary>
@@ -16,13 +15,13 @@ namespace NextBiggerNumber.Logic
         ///<param name="number">Your number.</param>
         /// <param name="time">Calculation time.</param>
         /// <returns>Next bigger number and time.</returns>
-        public static int FindNextBiggerNumber(int number, out string time)
+        public static int FindNextBiggerNumber(int number, out double time)
         {
             Stopwatch swatch = new Stopwatch();
             swatch.Start();
             number = FindNextBiggerNumber(number);
             swatch.Stop();
-            time = (swatch.Elapsed).ToString();
+            time = (swatch.Elapsed).Milliseconds;
             return number;
         }
 
